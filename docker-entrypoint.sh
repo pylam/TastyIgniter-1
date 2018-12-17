@@ -2,6 +2,7 @@
 set -e
 
 if [ ! -e '/var/www/html/index.php' ]; then
+        cd /var/www/html
 	tar cf - --one-file-system -C /usr/src/tastyigniter . | tar xf -
 	chown -R www-data /var/www/html
 	if [ -n "${MYSQL_HOSTNAME}" ]; then
